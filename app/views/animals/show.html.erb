@@ -1,0 +1,26 @@
+<h1><%= @animal.name %></h1>
+<br>
+<hr>
+<% if @animal.sightings.any? %>
+  <h4>Here are the sightings for this animal:</h4>
+
+  <% @animal.sightings.each do |sighting| %>
+    <ul>
+      <li>
+        <%= link_to sighting.date, animal_sighting_path(@animal, sighting) %>
+      </li>
+    </ul>
+  <% end %>
+<% else %>
+ <p> No <%= @animal.name %> sightings have been reported. </p>
+<% end %>
+<br>
+<hr>
+<p><%= link_to "Add a sighting", new_animal_sighting_path(@animal) %></p>
+
+<p><%= link_to "Edit", edit_animal_path(@animal) %></p>
+<p><%= link_to "Delete", animal_path(@animal),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>
+
+<p><%= link_to "Return to Animals", animals_path %></p>

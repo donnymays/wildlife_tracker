@@ -1,0 +1,12 @@
+<h1>Edit sighting:</h1>
+<br>
+<hr>
+<%= form_for [@animal, @sighting] do |f| %>
+  <%= f.label :date %>
+  <%= f.date_select :date %>
+  <%= f.label :latitude %>
+  <%= f.text_field :lat %>
+  <%= f.label :longitude %>
+  <%= f.text_field :lng %>
+  <p><%= f.submit %></p>
+<% end %>

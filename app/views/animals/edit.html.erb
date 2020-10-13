@@ -1,0 +1,8 @@
+<h1>Edit animal</h1>
+<br>
+<hr>
+<%= form_for @animal do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit  %>
+<% end %>
